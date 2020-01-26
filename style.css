@@ -21,7 +21,7 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
   font-family: 'mrs-eaves', serif;
-  font-size: 62.5%;
+  /*font-size: 62.5%;*/
   color: #333;
 }
 
@@ -47,7 +47,7 @@ h1, h2, h3 {
 }
 
 p {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: .85rem;
 }
 
@@ -63,6 +63,7 @@ p {
   display: inline-block;
   position: relative;
   margin-bottom: 0.8em;  
+  z-index: 1;
 }
 
 .fancy span::before,
@@ -106,7 +107,7 @@ nav {
   height: 8vh;
   background-color: var(--base-clr);
   position: fixed;
-  z-index: 1;
+  z-index: 5;
 }
 
 nav ul {
@@ -117,7 +118,7 @@ nav ul {
 }
 
 nav a {
-  font-size: 1.6rem;
+  font-size: 1rem;
   text-decoration: none;
   color: #fff2db;
   display: inline-block;
@@ -139,7 +140,7 @@ nav a:focus {
 }
 
 .desktop-nav h1 {
-  font-size: 4.2rem;
+  font-size: 3rem;
   font-weight: 400;
   letter-spacing: 1.7px;
   color: #fff;
@@ -199,8 +200,23 @@ nav a:focus {
   align-items: center;
   width: 100%;
   height: auto;
+  position: relative;
   padding: var(--padding-s);
   background-color: var(--secondary-clr);
+}
+
+.menu-container::after {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/decobg.png");
+  background-size: contain;
+  background-attachment: fixed;
+  opacity: 0.125;
+  
 }
 
 .menu-cards {
@@ -208,6 +224,7 @@ nav a:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .card {
@@ -215,9 +232,9 @@ nav a:focus {
   letter-spacing: 0.5px;
   text-align: center;
   max-width: 500px;
-  height: 450px;
-  border: 4px double #333;
-  border-radius: 2px;
+  height: 500px;
+  /*border: 4px double #333;*/
+  border-radius: 4px;
   margin-top: 2rem;
   padding: 1em 1em;
   background-color: #dbc6b1;
@@ -256,13 +273,28 @@ p.menu {
   align-items: center;
   width: 100%;
   height: auto;
+  position: relative;
   padding: var(--padding-s);
   background-color: var(--primary-clr);
 
 }
 
+.about-container::after {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/lights.jpg");
+  background-size: cover;
+  opacity: 0.125;
+  z-index: 2;
+}
+
 .quote {
 text-align: center;
+z-index: 3;
 }
 
 .quote h2 {
@@ -274,6 +306,7 @@ text-align: center;
 .story {
   text-align: center;
   color: #5a0e0b;
+  z-index: 3;
 }
 
 .story span {
@@ -380,7 +413,8 @@ footer ul {
 
 .footer-links a {
   font-family: 'mrs-eaves-roman-all-petite-c', serif; 
-  font-size: 2rem;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
   text-decoration: none;
   color: #fff;
 }
@@ -396,7 +430,7 @@ footer ul {
   align-items: center;
   width: 35px;
   height: 35px;
-  padding: 20px;
+  padding: 25px;
   border-radius: 50%;
   background-color: var(--primary-clr);
 }
@@ -422,20 +456,32 @@ footer ul {
 }
 
 
+
+
+
 /*   MEDIA QUERIES   */
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 80%;
+}
+
+}
 
 @media screen and (min-width: 900px) {
   
+  html {
+      font-size: 90%;
+  }
 
   .hero-container {
-    height: 85vh;
+    height: 100vh;
   }
 
   nav ul {
     display: flex;
     text-transform: uppercase;
   }
-
 
   .mobile-nav {
     display: none;
@@ -478,7 +524,7 @@ footer ul {
   .story {
     display: flex;
     flex-direction: column;
-    flex-basis: 60%;
+    flex-basis: 90%;
     text-align: left;
     margin-left: 3.5em;
     color: #5a0e0b;
@@ -538,7 +584,6 @@ footer ul {
 
   .location-container span {
     margin: 1.3em;
-
   }
 
   .location {
